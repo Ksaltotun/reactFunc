@@ -6,16 +6,16 @@ import {Provider} from "react-redux";
 import {createStore} from "redux";
 import reducer from "../reducers";
 
+const store = createStore(reducer);
+store.subscribe(()=>{console.log(store.getState())});
 const App = () => {
-  const store = createStore(reducer);
-  console.log(store.getState());
-
+  
   return (
     <Provider store={store}>
       {
         <div className="app">
           <InputForm />
-          <GuestsTable peoples={store.getState().peoples} />
+          <GuestsTable />
         </div>
       }
     </Provider>
