@@ -1,3 +1,3 @@
-import {addPeople} from "./actions";
+import {addPeople, deletePiple} from "./actions";
 
-export default addPeople;
+export {addPeople, deletePiple};

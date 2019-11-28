@@ -5,3 +5,9 @@ export const addPeople = (name, age) => {
     age,
   };
 };
+export const deletePiple = id => {
+  return {
+    type: "DELETE_PIPLE",
+    id,
+  };
+};
