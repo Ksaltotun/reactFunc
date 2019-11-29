@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import User from "../user";
+import User from "../User";
 import "./guestsTable.css";
 import {useSelector} from "react-redux";
 

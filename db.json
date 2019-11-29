@@ -1,19 +1,26 @@
 {
-  "posts": [
+  "users": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "John",
+      "age": 18,
+      "id": 1
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "asdasd",
+      "age": 12,
+      "id": 8
+    },
+    {
+      "name": 3,
+      "id": 10
+    },
+    {
+      "name": 2,
+      "id": 11
+    },
+    {
+      "name": 3,
+      "id": 12
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

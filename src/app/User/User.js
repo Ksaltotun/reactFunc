@@ -2,14 +2,14 @@ import React from "react";
 import "./user.css";
 import {Button} from "react-bootstrap";
 import {Badge} from "react-bootstrap";
-import {deletePiple} from "../../actions";
+import {deletePeople} from "../../actions";
 import {useDispatch} from "react-redux";
 
 export const User = props => {
   const {name, age, id} = props;
   const dispatch = useDispatch();
   const handleClick = () => {
-    dispatch(deletePiple(id));
+    dispatch(deletePeople(id));
     console.log(id);
   };
 

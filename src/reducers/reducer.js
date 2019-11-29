@@ -1,18 +1,8 @@
-const initpeoples = {
-  peoples: [
-    {
-      name: "John",
-      age: 20,
-      id: 1,
-    },
-  ],
-};
-
-export const reducer = (state = initpeoples, action) => {
+export const reducer = (state = {peoples: []}, action) => {
   const nextId =
     state.peoples.length > 0 ? state.peoples[state.peoples.length - 1].id + 1 : 1;
   switch (action.type) {
-    case "ADD_PEOPLE":
+    case "PUSH_PEOPLE_SUCCES":
       return {
         peoples: state.peoples.concat({
           name: action.name,
@@ -20,9 +10,14 @@ export const reducer = (state = initpeoples, action) => {
           id: nextId,
         }),
       };
-    case "DELETE_PIPLE":
+    case "DELETE_PEOPLE_SUCCES":
+      console.log(action, '++');
       return {
         peoples: state.peoples.filter(item => item.id !== action.id),
+      };
+    case "GET_PEOPLE_SUCCES":
+      return {
+        peoples: action.peoples,
       };
     default:
       return state;

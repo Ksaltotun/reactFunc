@@ -1,23 +1,23 @@
-import React from "react";
-import "./inputForm.css";
-import {addPeople} from "../../actions";
+import React, {useState} from "react";
+import "./InputForm.css";
 import {useDispatch} from "react-redux";
+import {pushPeople} from "../../actions";
 
 export const InputForm = () => {
   const dispatch = useDispatch();
-  let nameInput = "";
-  let ageInput = 0;
+  const [form, setForm] = useState({});
+
   const handleChangeName = event => {
-    nameInput = event.target.value;
-    console.log(nameInput);
+    setForm({...form, name: event.target.value});
   };
+
   const handleChangeAge = event => {
-    ageInput = parseInt(event.target.value);
-    console.log(ageInput);
+    setForm({...form, age: parseInt(event.target.value, 10)});
   };
+
   const handleSubmit = event => {
-    dispatch(addPeople(nameInput, ageInput));
     event.preventDefault();
+    dispatch(pushPeople(form.name, form.age));
   };
 
   return (
