@@ -1,10 +1,7 @@
 import React, {useState} from "react";
 import "./InputForm.css";
-import {useDispatch} from "react-redux";
-import {pushPeople} from "../../actions";
 
-export const InputForm = () => {
-  const dispatch = useDispatch();
+export const InputForm = ({onPushPeople}) => {
   const [form, setForm] = useState({});
 
   const handleChangeName = event => {
@@ -17,7 +14,7 @@ export const InputForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(pushPeople(form.name, form.age));
+    onPushPeople(form.name, form.age);
   };
 
   return (

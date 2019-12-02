@@ -3,24 +3,26 @@ import "./App.css";
 import InputForm from "./InputForm";
 import GuestsTable from "./GuestsTable";
 import {Provider} from "react-redux";
-import thunk from "redux-thunk";
 import {createStore, applyMiddleware} from "redux";
 import reducer from "../reducers";
-import {getPeoples} from "../actions";
 
-const store = createStore(reducer, applyMiddleware(thunk));
+import createSagaMiddleware from "redux-saga";
+import {getPeoples, pushPeople, deletePeople} from "../saga";
 
-store.subscribe(() => {
-  console.log(store.getState());
-});
-store.dispatch(getPeoples());
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(getPeoples);
+const handlePushPeople = (name, age) => sagaMiddleware.run(pushPeople, name, age);
+const handleDeletePeople = id => sagaMiddleware.run(deletePeople, id);
 const App = () => {
   return (
     <Provider store={store}>
       {
         <div className="app">
-          <InputForm />
-          <GuestsTable />
+          <InputForm onPushPeople={handlePushPeople} />
+          <GuestsTable onDeletePeople={handleDeletePeople} />
         </div>
       }
     </Provider>
