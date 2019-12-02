@@ -33,7 +33,6 @@ const pushData = (name, age) => {
 };
 
 const getPeoplesRequest = () => {
-  console.log("request sand");
   return {
     type: "GET_PEOPLE_REQUEST",
   };
@@ -64,14 +63,12 @@ export const getPeoples = () => {
 };
 
 const pushPeoplesRequest = () => {
-  console.log("request sand");
   return {
     type: "PUSH_PEOPLE_REQUEST",
   };
 };
 
 const pushPeoplesSucces = resp => {
-  console.log(resp);
   return {
     type: "PUSH_PEOPLE_SUCCES",
     name: resp.name,
@@ -97,14 +94,12 @@ export const pushPeople = (name, age) => {
 };
 
 const deletePeoplesRequest = () => {
-  console.log("request sand");
   return {
     type: "DELETE_PEOPLE_REQUEST",
   };
 };
 
 const deletePeoplesSucces = id => {
-  console.log(id, "**");
   return {
     type: "DELETE_PEOPLE_SUCCES",
     id: id,

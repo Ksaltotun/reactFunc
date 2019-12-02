@@ -10,7 +10,6 @@ export const User = props => {
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(deletePeople(id));
-    console.log(id);
   };
 
   return (
