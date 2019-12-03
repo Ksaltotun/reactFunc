@@ -1,4 +1,4 @@
-import {put, call} from "redux-saga/effects";
+import {put, call, takeEvery, takeLatest} from "redux-saga/effects";
 
 const getData = () => {
   return fetch("http://localhost:3001/users").then(resp => resp.json());
@@ -25,7 +25,7 @@ const getPeopleFailure = () => {
   };
 };
 
-export function* getPeoples() {
+export function* getPeoples1() {
   try {
     yield put(getPeoplesRequest());
     const peoples = yield call(getData);
@@ -34,6 +34,10 @@ export function* getPeoples() {
     yield put(getPeopleFailure());
     console.error(e);
   }
+}
+
+export function* getPeoples() {
+  yield takeEvery("GET_PEOPLE_REQUEST", getPeoples1);
 }
 
 const pushData = (name, age) => {

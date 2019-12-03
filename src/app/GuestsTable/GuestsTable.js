@@ -5,7 +5,8 @@ import {useSelector} from "react-redux";
 import Spiner from "../Spiner";
 
 export const GuestsTable = ({onDeletePeople}) => {
-  const {peoples, spiner} = useSelector(store => store);
+  const spiner = useSelector(({spiner}) => spiner);
+  const peoples = useSelector(({peoples}) => peoples);
 
   return (
     <div className="jumbotron userList">
