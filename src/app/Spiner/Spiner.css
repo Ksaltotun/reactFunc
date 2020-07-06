@@ -1,0 +1,15 @@
+.spiner{
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background-color: crimson;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

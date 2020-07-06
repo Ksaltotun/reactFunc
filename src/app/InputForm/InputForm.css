@@ -1,0 +1,11 @@
+.inputForm{
+  display: flex;
+  width: 30%;
+  height: 30%;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.point{
+  margin-top: 10px;
+}
